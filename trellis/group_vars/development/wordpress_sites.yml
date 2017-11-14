@@ -1,0 +1,21 @@
+# Documentation: https://roots.io/trellis/docs/local-development-setup/
+# `wordpress_sites` options: https://roots.io/trellis/docs/wordpress-sites
+# Define accompanying passwords/secrets in group_vars/development/vault.yml
+
+wordpress_sites:
+  escaya.com:
+    site_hosts:
+      - canonical: sdpatrol.dev
+        redirects:
+          - www.sdpatrol.dev
+    local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
+    admin_email: leylabadillo@gmail.com
+    multisite:
+      enabled: false
+    ssl:
+      enabled: false
+      provider: self-signed
+    cache:
+      enabled: false
+    db_create: false
+    repo: https://github.com/jarredbadillo/phoenix-security.git
